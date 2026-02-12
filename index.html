@@ -1244,6 +1244,7 @@
         }
 
         function renderTableView(container) {
+            if(item.name.includes("????") || item.name.includes("BUGGED") || item.name.includes("Krymel")) return;
             const visibleItems = filteredItems; // Show all items
             
             let html = `
