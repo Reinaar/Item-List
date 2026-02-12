@@ -1264,8 +1264,7 @@
             `;
 
             visibleItems.forEach(item => {
-            if(item.name.includes("????") || item.name.includes("BUGGED") || item.name.includes("Krymel")) { skip = true; return; };
-
+                if(item.name.includes("????") || item.name.includes("BUGGED") || item.name.includes("Krymel")) { skip = true; return; };
                 const rarityClass = getRarityClass(item.type);
                 html += `
                     <tr onclick="copyGetItem('${escapeHtml(item.id)}', '${escapeHtml(item.name)}', event)" style="cursor: pointer;">
