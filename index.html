@@ -1244,7 +1244,7 @@
         }
 
         function renderTableView(container) {
-            const visibleItems = filteredItems.slice(0, 1000);
+            const visibleItems = filteredItems; // Show all items
             
             let html = `
                 <div class="table-container">
@@ -1285,14 +1285,6 @@
                     </table>
                 </div>
             `;
-
-            if (filteredItems.length > 200) {
-                html += `
-                    <div style="padding: 1rem; text-align: center; color: var(--text-secondary);">
-                        Showing first 200 of ${filteredItems.length.toLocaleString()} items
-                    </div>
-                `;
-            }
 
             container.innerHTML = html;
         }
