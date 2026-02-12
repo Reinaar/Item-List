@@ -1244,7 +1244,7 @@
         }
 
         function renderTableView(container) {
-            if(item.name.includes("????") || item.name.includes("BUGGED") || item.name.includes("Krymel")) return;
+            var skip = false;
             const visibleItems = filteredItems; // Show all items
             
             let html = `
@@ -1264,6 +1264,8 @@
             `;
 
             visibleItems.forEach(item => {
+            if(item.name.includes("????") || item.name.includes("BUGGED") || item.name.includes("Krymel")) { skip = true; return; };
+
                 const rarityClass = getRarityClass(item.type);
                 html += `
                     <tr onclick="copyGetItem('${escapeHtml(item.id)}', '${escapeHtml(item.name)}', event)" style="cursor: pointer;">
@@ -1287,7 +1289,8 @@
                 </div>
             `;
 
-            container.innerHTML = html;
+            if (!skip)
+                container.innerHTML = html;
         }
 
         function renderItemCard(item) {
